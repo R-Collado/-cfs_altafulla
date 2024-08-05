@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import LanguageSelector from '../../components/LanguageSelector.astro';
+---
+
+<Layout title="Welcome to Astro.">
+	<LanguageSelector />
+	<main>
+		<p>English home</p>
+	</main>
+</Layout>

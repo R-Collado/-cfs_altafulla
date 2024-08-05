@@ -1,0 +1,27 @@
+---
+import { getRelativeLocaleUrl } from "astro/virtual-modules/i18n.js";
+
+const spanish = getRelativeLocaleUrl("es", "about");
+const catalan = getRelativeLocaleUrl("ca", "about");
+const english = getRelativeLocaleUrl("en", "");
+
+---
+
+<ul>
+	<li><a href={spanish}>ES</a></li>
+	<li><a href={catalan}>CA</a></li>
+	<li><a href={english}>EN</a></li>
+</ul>
+
+
+<style>
+	a,
+	a:visited {
+		color: white;
+	}
+
+	a:hover {
+		color: blue;
+	}
+
+</style>
