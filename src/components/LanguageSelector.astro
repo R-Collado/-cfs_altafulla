@@ -5,9 +5,15 @@ import SpanishFlag from "../assets/spanish-flag.png";
 import CatalanFlag from "../assets/catalan-flag.png";
 import EnglishFlag from "../assets/english-flag.png";
 
-const spanish = getRelativeLocaleUrl("es", Astro.props.actualComponent);
-const catalan = getRelativeLocaleUrl("ca", Astro.props.actualComponent);
-const english = getRelativeLocaleUrl("en", Astro.props.actualComponent);
+interface Props {
+	actualComponent: string;
+}
+
+const {actualComponent} = Astro.props;
+
+const spanish = getRelativeLocaleUrl("es", actualComponent);
+const catalan = getRelativeLocaleUrl("ca", actualComponent);
+const english = getRelativeLocaleUrl("en", actualComponent);
 
 ---
 
