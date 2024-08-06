@@ -1,0 +1,14 @@
+---
+
+import InDevelopment from "../../layouts/InDevelopment.astro";
+
+import { inDevelopmentContent } from "../../configs/in-development"
+
+const title= inDevelopmentContent.ca.title
+const header = inDevelopmentContent.ca.header
+const message = inDevelopmentContent.ca.message
+
+---
+
+
+<InDevelopment title={title} header={header} message={message} />    

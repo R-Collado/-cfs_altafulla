@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 
 const browserLocale = Astro.currentLocale;
+console.log(browserLocale)
 
 ---
 
@@ -37,7 +38,14 @@ const browserLocale = Astro.currentLocale;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		/* background: #13151a; */
+		
+	}
+
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
 	}
 	code {
 		font-family:

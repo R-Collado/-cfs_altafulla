@@ -1,27 +1,53 @@
 ---
 import { getRelativeLocaleUrl } from "astro/virtual-modules/i18n.js";
 
-const spanish = getRelativeLocaleUrl("es", "about");
-const catalan = getRelativeLocaleUrl("ca", "about");
-const english = getRelativeLocaleUrl("en", "");
+import SpanishFlag from "../assets/spanish-flag.png";
+import CatalanFlag from "../assets/catalan-flag.png";
+import EnglishFlag from "../assets/english-flag.png";
+
+const spanish = getRelativeLocaleUrl("es", Astro.props.actualComponent);
+const catalan = getRelativeLocaleUrl("ca", Astro.props.actualComponent);
+const english = getRelativeLocaleUrl("en", Astro.props.actualComponent);
 
 ---
 
-<ul>
-	<li><a href={spanish}>ES</a></li>
-	<li><a href={catalan}>CA</a></li>
-	<li><a href={english}>EN</a></li>
+<ul class="language-list">
+	<li>
+		<a href={spanish}>
+			<img src={SpanishFlag.src} alt="Bandera de España" />
+			ES
+		</a>
+	</li>
+	<li>
+		<a href={catalan}>
+			<img src={CatalanFlag.src} alt="Bandera de Catalunya" />
+			CA
+		</a>
+	</li>
+	<li>
+		<a href={english}>
+			<img src={EnglishFlag.src} alt="Bandera de Reino Unido" />
+			EN
+		</a>
+	</li>
 </ul>
 
 
 <style>
 	a,
 	a:visited {
-		color: white;
+		color: black;
+		text-decoration: none;
 	}
 
 	a:hover {
-		color: blue;
+		text-decoration: underline;
+	}
+
+	.language-list {
+		display: flex;
+		gap: 2rem;
+		list-style: none;
 	}
 
 </style>
