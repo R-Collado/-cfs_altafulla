@@ -5,7 +5,6 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
     i18n: {
-        defaultLocale: 'es',
         locales: ['en', 'es', 'ca'],
         routing: {
             prefixDefaultLocale: true,
