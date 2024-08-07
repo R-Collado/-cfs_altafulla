@@ -1,0 +1,201 @@
+---
+
+import LoaderIcon from '../assets/images/loader-icon.png';
+
+const {isLoading} = Astro.props;
+---
+
+<div class="loader-overlay" data-is-loading={isLoading}=>
+    <div class="loader-container">
+        <div class="upper-flying-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <img src={LoaderIcon.src} alt="Loader icon" class="loader-icon" />
+    <div class="under-flying-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    </div>
+</div>
+
+
+<style>
+
+    .loader-overlay {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-content: center;
+        z-index: 1200;
+        position: absolute;
+
+        transition: opacity 100ms ease-in;
+    }
+
+    .loader-overlay.hidden {
+        opacity: 0;
+        z-index: 0;
+    }
+
+    .loader-container {
+        width: 4rem;
+        height: 6rem;
+        position: relative;
+        display: grid;
+        place-content: center;
+        overflow: hidden;
+    }
+
+    .loader-icon {
+        width: 4rem;
+        aspect-ratio: 1;
+        z-index: 5;
+        animation: flyingMovement 10s infinite;
+    }
+    
+    .line {
+        height: 4px;
+        width: 2rem;
+        background-color: black;
+        border-radius: 100vw;
+        position: absolute;
+        transition: left 1000ms ease-out;
+        z-index: 1;
+    }
+
+    .upper-flying-lines .line:nth-of-type(1) {
+        top: 30%;
+        width: 1rem;
+    }
+
+    .upper-flying-lines .line:nth-of-type(2) {
+        top: 40%;
+        width: 1.5rem;
+    }
+
+    .upper-flying-lines .line:nth-of-type(3) {
+        top: 50%;
+        width: 1.25rem;
+    }
+
+    .under-flying-lines .line:nth-of-type(1) {
+        bottom: 50%;
+        width: 1rem;
+    }
+
+    .under-flying-lines .line:nth-of-type(2) {
+        bottom: 40%;
+        width: 1.5rem;
+    }
+
+    .under-flying-lines .line:nth-of-type(3) {
+        bottom: 300%;
+        width: 1.75rem;
+    }
+
+     .loader-container .upper-flying-lines .line:nth-of-type(1) {
+        animation: upper-flying-line-1 2s infinite;
+    }
+    .loader-container .upper-flying-lines .line:nth-of-type(2) {
+        animation: upper-flying-line-2 2s infinite;
+    }
+    .loader-container .upper-flying-lines .line:nth-of-type(3) {
+        animation: upper-flying-line-3 2s infinite;
+    }
+
+    .loader-container .under-flying-lines .line:nth-of-type(1) {
+         animation: under-flying-line-1 2s infinite;
+    }
+    .loader-container .under-flying-lines .line:nth-of-type(2) {
+         animation: under-flying-line-2 2s infinite;
+    }
+    .loader-container .under-flying-lines .line:nth-of-type(3) {
+         animation: under-flying-line-3 2s infinite;
+    }
+
+
+    @keyframes upper-flying-line-1 {
+        0% {
+            left: 105%
+        }
+
+        100% {
+            left: -55%
+        } 
+    }
+
+    @keyframes upper-flying-line-2 {
+        0% {
+            left: 350%
+        }
+
+        100% {
+            left: -55%
+        } 
+    }
+
+    @keyframes upper-flying-line-3 {
+        0% {
+            left: 200%
+        }
+
+        100% {
+            left: -55%
+        } 
+    }
+
+    @keyframes under-flying-line-1 {
+        0% {
+            left: -305%;
+        }
+
+        100% {
+            left: 155%;
+        } 
+    } 
+
+    @keyframes under-flying-line-2 {
+        0% {
+            left: -470%;
+        }
+
+        100% {
+            left: 155%;
+        } 
+    } 
+
+    @keyframes under-flying-line-3 {
+        0% {
+            left: -105%;
+        }
+
+        100% {
+            left: 155%;
+        } 
+    } 
+
+    @keyframes flyingMovement {
+        0% {
+            transform: translateY(-20%)
+        }
+
+        25% {
+            transform: translateY(20%)
+        }
+
+        50% {
+            transform: translateY(-20%)
+        }
+
+        75% {
+            transform: translateY(20%);
+        } 
+
+        100% {
+            transform: translateY(-20%);
+        }
+    }
+</style>

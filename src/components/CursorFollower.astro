@@ -1,0 +1,95 @@
+---
+
+---
+
+<span id="cursorFollower" class="cursorFollower"></span>
+<span id="cursorFollowerDot" class="cursorFollowerDot"> </span>
+
+<script>
+
+    // big follower
+    var xp = 0,
+        mouseX = 0;
+    var yp = 0,
+        mouseY = 0;
+    
+    // small follower
+    var xpDot = 0,
+        mouseX = 0;
+    var ypDot = 0,
+        mouseY = 0;
+
+    const cursorFollower = document.querySelector(".cursorFollower") as HTMLElement;
+    const cursorFollowerDot = document.querySelector(".cursorFollowerDot") as HTMLElement;
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
+
+    setInterval(function () {
+        xp += (mouseX - xp) / 15;
+        yp += (mouseY - yp) / 15;
+
+        cursorFollower.style.left = xp + "px";
+        cursorFollower.style.top = yp + "px";
+    }, 20);
+
+    setInterval(function () {
+        xpDot += (mouseX - xpDot) / 25;
+        ypDot += (mouseY - ypDot) / 25;
+
+        cursorFollowerDot.style.left = xpDot + "px";
+        cursorFollowerDot.style.top = ypDot + "px";
+    }, 20);
+
+</script>
+
+
+<style>
+
+    .cursorFollower {
+        position: fixed;
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid black;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s;
+        /* mix-blend-mode: difference; */
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    .cursorFollowerDot {
+      position: fixed;
+        width: 0.8rem;
+        height: 0.8rem;
+        background: #000;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s;
+        /* mix-blend-mode: difference; */
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    /* #cursor-follower {
+        position: absolute;
+        width: 2rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 1px solid black;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        transform: translate3d(-50%, -50%, 0);
+        opacity: 0;
+
+        transition: opacity 350ms ease-in
+    }
+
+    #cursor-follower.visible {
+        opacity: 1;
+    } */
+</style>
